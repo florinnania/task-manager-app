@@ -22,10 +22,9 @@ const TaskList: React.FC = () => {
  
   const markTaskComplete = async (id: number) => {
     await fetch(`/api/tasks/${id}/complete`, { method: 'PUT' });
-    const updatedTasks = tasks.map(task =>
+    tasks.map(task =>
       task.id === id ? { ...task, completed: true } : task
     );
-    setTasks(updatedTasks);
   };
  
   if (loading) {
